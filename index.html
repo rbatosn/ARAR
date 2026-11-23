@@ -128,7 +128,7 @@
   <script type="module">
 
     import * as THREE from "three";
-    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+    import { glbLoader } from "three/addons/loaders/glbLoader.js";
     import { MindARThree } from "mindar-image-three";
 
     const status = document.getElementById("status");
@@ -178,7 +178,7 @@
     // 콘텐츠 urls
     const VIDEO_FILE = "./background.mp4";
     const IMAGE_FILE = "./background.jpg";
-    const MODEL_FILE = "./model.gltf";
+    const MODEL_FILE = "./model.glb";
 
     // 영상과 이미지 사이 간격 (마커 가로 길이 1 기준)
     // 영상 아래에 재생바 0.15
@@ -213,7 +213,7 @@
     let started = false;
     let starting = false;
 
-    const loader = new GLTFLoader();
+    const loader = new glbLoader();
 
 
     // 상태 표시
@@ -698,9 +698,9 @@
 
       MODEL_FILE,
 
-      (gltf) => {
+      (glb) => {
 
-        const model = gltf.scene;
+        const model = glb.scene;
 
         const box = new THREE.Box3().setFromObject(model);
 
